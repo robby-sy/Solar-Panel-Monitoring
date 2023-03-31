@@ -1,82 +1,223 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap");
 
-body{
-    background-image: url(resource/background.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  text-decoration: none;
 }
 
-*{
-    padding: 0;
-    margin: 0;
-    outline: none;
-    font-family: "Poppins",sans-serif;
-    border: none;
-    text-decoration: none;
-    box-sizing: border-box;
+body {
+  background-image: url(resource/background.jpg);
+  background-size: cover;
+}
+.navbar {
+  background-color: white;
+  box-shadow: 2px 2px 10px black;
+  border-radius: 0 0 5px 5px;
+  display: grid;
+  grid-template-areas: "logo kosong menu";
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 80px;
+  margin-bottom: 10px;
 }
 
-nav{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    background: #fff;
-    width: 130px;
-    overflow: hidden;
-    transition: width 0.2s linear;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+.logo {
+  justify-content: center;
+  align-items: center;
+  grid-area: logo;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 20px;
 }
 
-.logo{
-    text-align: :center;
-    display:flex;
-    transition: all 0.5s ease;
+.links {
+  list-style: none;
+  grid-area: menu;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.logo img{
-    width: 100px;
-    height: 75px;
-    border-radius: 10%;
+.links li {
+  display: inline-block;
 }
 
-.logo span{
-    font-weight: bold;
-    padding: 20px;
-    font-size: 20px;
-    text-transform: uppercase;
+.menuButton{
+  color: gray;
+  font-size: 18px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: 0.3s;
 }
 
-a{
-    position: relative;
-    color: rgb(85,83,83);
-    font-size: 20px;
-    display: table;
-    width: 450px;
-    padding: 20px;
+.menuButton:hover{
+  color:white;
+  background-color: #31a1fc;
+  padding: 8px 15px;
+  border-radius: 20px;
 }
 
-.material-icons{
-    position: relative;
-    width: 130px;
-    height: 20px;
-    top: 0px;
-    font-size: 0px;
-    text-align: left;
-    margin-left: 30px;
+.content{
+  display: grid;
+  grid-template-areas: "sideMenu monitorField";
+  grid-template-columns: 1fr 4fr;
+  grid-column-gap: 10px;
+  margin: 10px;
 }
 
-.nav-item{
-    position: relative;
-    top: 0px;
+.sideMenu{
+  background-color: white;
+  grid-area: sideMenu;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
 }
 
-a:hover{
-    background: #eee;
+.monitorField{
+  grid-area: monitorField;
+  display: grid;
+  grid-template-areas: "main main main main main"
+  "sub1 sub2 sub3 sub4 sub5";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 6fr 2fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  opacity: 0.7;
 }
 
-nav:hover{
-    width: 450px;
-    transition: all 0.5s ease;
+.mainMonitor{
+  grid-area: main;
+  background-color: white;
+  height:500px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
+  display: grid;
+  grid-template-areas: "headerMainMon headerMainMon headerMainMon headerMainMon headerMainMon headerMainMon"
+  "graphMainMon graphMainMon graphMainMon graphMainMon graphMainMon graphMainMon"
+  "compLabel radioVolt radioCurr radioIntent radioTemp radioHum";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 4fr 1fr;
+}
+
+.subMonitor1{
+  grid-area: sub1;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
+}
+.subMonitor2{
+  grid-area: sub2;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
+}
+.subMonitor3{
+  grid-area: sub3;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
+}
+.subMonitor4{
+  grid-area: sub4;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
+}
+.subMonitor5{
+  grid-area: sub5;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
+}
+
+.dateSelector{
+  display: grid;
+  grid-template-areas: "currentGraph judulTanggal tanggalPicker buttonTanggal";
+  grid-template-columns:3fr 1fr 0.6fr 0.4fr;
+  margin: 20px;
+  grid-area: headerMainMon;
+}
+
+#judulTanggal{
+  grid-area: judulTanggal;
+  display: flex;
+  justify-content: end;
+  margin: 8px;
+}
+
+#currentDate{
+  grid-area: tanggalPicker;
+  display: flex;
+  justify-content: start;
+  margin: 8px;
+}
+
+#buttonTanggal{
+  grid-area: buttonTanggal;
+  border-radius: 10px;
+  margin: 8px;
+}
+
+#buttonTanggal:hover{
+  grid-area: buttonTanggal;
+  border-radius: 10px;
+  color: white;
+  background-color: #31a1fc;
+  margin: 8px;
+}
+
+#currentGraph{
+  grid-area: currentGraph;
+  display: flex;
+  justify-content: start;
+  margin: 8px;
+}
+
+.mainGrafik{
+  grid-area: graphMainMon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#compHead{
+  grid-area: compLabel;
+  margin-left:20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radioBox1{
+  grid-area: radioVolt;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.radioBox2{
+  grid-area: radioCurr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.radioBox3{
+  grid-area: radioIntent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.radioBox4{
+  grid-area: radioTemp;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.radioBox5{
+  grid-area: radioHum;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

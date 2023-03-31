@@ -1,45 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="#" class="logo">
-        <img src="resource/logo.png" alt="image not found">
-        <span>Solar Panel Monitoring</span>
-      </a></li>
-      <li><a href="home">
-        <i class="material-icons" style="font-size: 36px;">home</i>
-        <span class="nav-item">Home</span>
-      </a></li>
-      <li><a href="Sun_Int">
-        <i class="material-icons" style="font-size: 36px;">brightness_high</i>
-        <span class="nav-item">Sun Intensity</span>
-      </a></li>
-      <li><a href="Temp">
-        <i class="material-icons" style="font-size: 36px;">ac_unit</i>
-        <span class="nav-item">Panel Temperature</span>
-      </a></li>
-      <li><a href="Hum">
-        <i class="material-icons" style="font-size: 36px;">cloud_queue</i>
-        <span class="nav-item">Humidity</span>
-      </a></li>
-      <li><a href="Voltage">
-        <i class="material-icons" style="font-size: 36px;">add_to_queue</i>
-        <span class="nav-item">Voltage</span>
-      </a></li>
-      <li><a href="Current">
-        <i class="material-icons" style="font-size: 36px;">broken_image</i>
-        <span class="nav-item">Current</span>
-      </a></li>
-    </ul>
-  </nav>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar Monitoring</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img
+          src="resource/Solar-removebg.png"
+          alt="logo hilang"
+          height="50px"
+        />
+      </div>
+      <ul class="links">
+        <li><a class="menuButton" href="#">Download</a></li>
+        <li><a class="menuButton" href="#">Lokasi</a></li>
+        <li><a class="menuButton" href="#">Sensor</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <div class="sideMenu">Menu Informasi</div>
+      <div class="monitorField">
+        <div class="mainMonitor">
+          <div class="dateSelector">
+            <p id="currentGraph">Current Graph</p>
+            <div id="judulTanggal">Pilih Tanggal :</div>
+            <input type="date" id="currentDate" name="currentDate" />
+            <button id="buttonTanggal">Submit</button>
+          </div>
+          <div class="mainGrafik">
+            <canvas id="myChart" style="width: 100%; max-width: 1000px;height: 300px;"></canvas>
+          </div>
+          <p id="compHead">Bandingkan Grafik Dengan</p>
+          <div class="radioBox1">
+            <input
+              type="radio"
+              id="radioVoltage"
+              name="fav_language"
+              value="HTML"
+            />
+            <label for="radioVoltage">Voltage</label><br />
+          </div>
+          <div class="radioBox2">
+            <input
+              type="radio"
+              id="radioCurrent"
+              name="fav_language"
+              value="CSS"
+            />
+            <label for="radioCurrent">Current</label><br />
+          </div>
+          <div class="radioBox3">
+            <input
+              type="radio"
+              id="radioIntent"
+              name="fav_language"
+              value="JavaScript"
+            />
+            <label for="radioIntent">Intensity</label>
+          </div>
+          <div class="radioBox4">
+            <input
+              type="radio"
+              id="radioTemp"
+              name="fav_language"
+              value="JavaScript"
+            />
+            <label for="radioTemp">Temperature</label>
+          </div>
+          <div class="radioBox5">
+            <input
+              type="radio"
+              id="radioHum"
+              name="fav_language"
+              value="JavaScript"
+            />
+            <label for="radioHum">Humidity</label>
+          </div>
+        </div>
+        <div class="subMonitor1">Arus</div>
+        <div class="subMonitor2">Intensitas</div>
+        <div class="subMonitor3">Suhu</div>
+        <div class="subMonitor4">Kelembapan</div>
+        <div class="subMonitor5">Tegangan</div>
+      </div>
+    </div>
+
+    <!--================================================Script untuk grafik==========================================-->
+    <script>
+      let xValues = [];
+      for (let x = 0; x < 1440; x++) {
+        xValues.push(x);
+      }
+      let voltage = [];
+      for (let i = 0; i < 1440; i++) {
+        voltage.push(Math.random() * 12);
+      }
+      new Chart("myChart", {
+        type: "line",
+        data: {
+          labels: xValues,
+          datasets: [
+            {
+              data: voltage,
+              borderColor: "red",
+              fill: false,
+            },
+          ],
+        },
+        options: {
+          legend: { display: true },
+        },
+      });
+    </script>
+  </body>
 </html>
