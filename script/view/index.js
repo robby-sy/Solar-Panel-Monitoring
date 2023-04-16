@@ -1,5 +1,8 @@
 class View{
     static buatGrafik(dataArray){
+        let dataPoints = dataArray.map(element=>{
+            return {y:element};
+        })
         var chart = new CanvasJS.Chart("chartContainer", { 
             title: {
                 text: "Adding & Updating dataPoints"
@@ -7,12 +10,7 @@ class View{
             data: [
             {
                 type: "spline",
-                dataPoints: [
-                    { y: 10 },
-                    { y:  4 },
-                    { y: 18 },
-                    { y:  8 }	
-                ]
+                dataPoints: dataPoints
             }
             ]
         });

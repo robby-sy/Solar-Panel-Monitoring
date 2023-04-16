@@ -1,2 +1,1 @@
-let Contoller = require('./controller/index')
-Contoller.createGraph(voltage);
+Controller.buatGrafikTegangan('2023-04-16');

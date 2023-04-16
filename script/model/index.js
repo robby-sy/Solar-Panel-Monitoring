@@ -1,5 +1,3 @@
-let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-let Factory = require('./class.js')
 
 class Model{
     static getData(date,callback) {
@@ -25,5 +23,3 @@ class Model{
         })
     }
 }
-
-module.exports = Model

@@ -1,7 +1,4 @@
-let Model = require('./model/index.js');
-let View = require('./view')
-
-class controller{
+class Controller{
     static buatGrafikTegangan(date){
         Model.getTegangan(date,(Tegangan)=>{
             View.buatGrafik(Tegangan);

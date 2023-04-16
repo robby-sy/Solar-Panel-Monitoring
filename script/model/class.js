@@ -15,5 +15,3 @@ class Factory{
         return data;
     }
 }
-
-module.exports = Factory;
